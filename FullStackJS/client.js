@@ -1,5 +1,4 @@
-function logDate()
-{
+function logDate() {
     console.log('Got into logDate()');
 
     const request = new XMLHttpRequest();
@@ -23,8 +22,7 @@ function logDate()
     request.send();
 }
 
-function logView()
-{
+function logView() {
     console.log('Got into logView()');
 
     const request = new XMLHttpRequest();
