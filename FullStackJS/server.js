@@ -3,11 +3,9 @@ const http = require('http');
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer((req, res) =>
-{
+const server = http.createServer((req, res) => {
     const {method, url} = req;
-    if (method === 'POST' && url === '/logdate')
-    {
+    if (method === 'POST' && url === '/logdate') {
         try {
             let date = new Date();
             console.log(`${method} : ${url}`)
@@ -24,8 +22,7 @@ const server = http.createServer((req, res) =>
             console.log(err);
         }
     }
-    else if (method === 'GET' && url === '/dates')
-    {
+    else if (method === 'GET' && url === '/dates') {
         console.log(`${method} : ${url}`);
         try {
             let dateContents = fs.readFileSync('datelog.txt');
@@ -38,8 +35,7 @@ const server = http.createServer((req, res) =>
             console.log(err);
         }
     }
-    else
-    {
+    else {
         console.log(`${method} : ${url}`);
 
         res.statusCode = 404;
@@ -50,7 +46,6 @@ const server = http.createServer((req, res) =>
     }
 });
 
-server.listen(port, hostname, () =>
-{
+server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}`);
 });
